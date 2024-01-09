@@ -12,7 +12,7 @@ const Navbar = ({ searchText, setSearchText }) => {
         <div>
           <input
             placeholder="search..."
-            className="outline-none w-[500px] rounded-[20px] p-[10px]  "
+            className="outline-none pl-[15px] w-[500px] rounded-[20px] p-[10px]  "
             type="text"
             onChange={(e) => setSearchText(e.target.value)}
           />

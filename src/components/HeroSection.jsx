@@ -57,13 +57,35 @@ const HeroSection = ({ searchText, setSearchText }) => {
   }, [URL]);
 
   return (
-    <div className="flex mt-3 md:mx-[300px] gap-4 justify-center items-center  flex-wrap ">
-      <Card
-        searchText={searchText}
-        pokemonData={pokemonData}
-        loading={loading}
-      />
-    </div>
+    <>
+      <div className="flex mt-3 md:mx-[300px] gap-4 justify-center items-center  flex-wrap ">
+        <Card
+          searchText={searchText}
+          pokemonData={pokemonData}
+          loading={loading}
+        />
+      </div>
+      <div className="md:mx-[300px] pr-[70px] my-4 flex gap-4 justify-end ">
+        <button
+          onClick={() => {
+            setPokemonData([]);
+            setURL(prev);
+          }}
+          className="bg-[#eec855] text-white rounded-[20px] px-4 py-3    "
+        >
+          {"<"}
+        </button>
+        <button
+          onClick={() => {
+            setPokemonData([]);
+            setURL(next);
+          }}
+          className="bg-[#eec855] text-white rounded-[20px] px-4 py-3  "
+        >
+          {">"}
+        </button>
+      </div>
+    </>
   );
 };
 

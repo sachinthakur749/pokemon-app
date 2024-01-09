@@ -5,11 +5,15 @@ const Card = ({ pokemonData, loading, searchText }) => {
 
   return (
     <>
-      {filteredPokemon.length === 0 && <p>No matching Pokemon found.</p>}
+      {loading && <p>loading...</p>}
+      {filteredPokemon.length === 0 && loading && (
+        <p>No matching Pokemon found.</p>
+      )}
+
       {filteredPokemon.map((val, ind) => (
         <div
           key={ind}
-          className="card cursor-pointer hover:scale-110 transition-all p-4 flex justify-center items-center flex-col bg-white rounded-md shadow-md w-[200px] h-[200px] bg-slate-600 "
+          className="card cursor-pointer hover:scale-110 transition-all p-4 flex justify-center items-center flex-col bg-white rounded-md shadow-md w-[200px] h-[200px]  "
         >
           <img
             className="w-[100px] h-[100px]"
@@ -17,7 +21,7 @@ const Card = ({ pokemonData, loading, searchText }) => {
             alt=""
           />
           {val?.name}
-          <div className="flex mt-2 w-[100%] justify-between">
+          <div className="flex mt-2 w-[100%]  justify-between">
             <div className="flex flex-col justify-center items-center">
               <span>{val?.weight}</span>
               <p className="text-[12px] text-gray-500 ">Weight</p>
