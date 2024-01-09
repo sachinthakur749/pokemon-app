@@ -1,4 +1,5 @@
 const Card = ({ pokemonData, loading, searchText }) => {
+  // for implementing search funtionality
   const filteredPokemon = pokemonData.filter((pokemon) =>
     pokemon?.name?.toLowerCase().includes(searchText?.toLowerCase())
   );

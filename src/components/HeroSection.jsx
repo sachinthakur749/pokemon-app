@@ -3,18 +3,6 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 
 const HeroSection = ({ searchText, setSearchText }) => {
-  //   const { isLoading, error, data } = useQuery("pokeData", () =>
-  //     fetch("https://pokeapi.co/api/v2/pokemon").then(
-  //       (res) => res.json(),
-  //       setPokemonData(data?.results)
-  //     )
-  //   );
-
-  //   const { isLoading, error, data } = useQuery("pokeData", async () => {
-  //     const response = await axios.get("https://pokeapi.co/api/v2/pokemon");
-  //     return response.data.results;
-  //   });
-
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [URL, setURL] = useState("https://pokeapi.co/api/v2/pokemon");
@@ -27,19 +15,8 @@ const HeroSection = ({ searchText, setSearchText }) => {
     setNext(res?.data?.next);
     setPrev(res?.data?.previous);
     getPokemon(res?.data?.results);
-    console.log(res.data.results);
     setLoading(false);
   };
-
-  //   const getPokemon = async (res) => {
-  //     res?.map(async (item) => {
-  //       const result = await axios.get(item?.url);
-  //       setPokemonData((state) => {
-  //         state = [...state, result.data];
-  //         return state;
-  //       });
-  //     });
-  //   };
 
   const getPokemon = async (res) => {
     const pokemonDetails = await Promise.all(
@@ -52,6 +29,7 @@ const HeroSection = ({ searchText, setSearchText }) => {
     setPokemonData(pokemonDetails);
   };
 
+  // to fetch data from APIs
   useEffect(() => {
     pokemonFunction();
   }, [URL]);
