@@ -6,7 +6,7 @@ const Card = ({ pokemonData, loading, searchText }) => {
 
   return (
     <>
-      {loading && <p>loading...</p>}
+      {loading && <p>loading....</p>}
       {filteredPokemon.length === 0 && loading && (
         <p>No matching Pokemon found.</p>
       )}
